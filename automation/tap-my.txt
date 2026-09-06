@@ -1,0 +1,6 @@
+type= raw events
+count= 2
+speed= 1.0
+start data >>
+UserWait(800)
+Tap(950,2140)

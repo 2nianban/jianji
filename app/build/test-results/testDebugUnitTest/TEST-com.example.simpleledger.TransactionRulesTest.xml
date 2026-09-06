@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.simpleledger.TransactionRulesTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2026-09-05T16:56:51" hostname="DESKTOP-DR6M2A2" time="0.359">
+  <properties/>
+  <testcase name="onlyCustomOptionsCanBeRemoved" classname="com.example.simpleledger.TransactionRulesTest" time="0.218"/>
+  <testcase name="weekStatsRunFromMondayThroughSunday" classname="com.example.simpleledger.TransactionRulesTest" time="0.022"/>
+  <testcase name="decimalAmountsAreConvertedToExactCents" classname="com.example.simpleledger.TransactionRulesTest" time="0.041"/>
+  <testcase name="recentlyDeletedWindowIncludesExactlyNowAndExcludesTwentyFourHours" classname="com.example.simpleledger.TransactionRulesTest" time="0.001"/>
+  <testcase name="historicalStatsCanMoveByCompletePeriods" classname="com.example.simpleledger.TransactionRulesTest" time="0.0"/>
+  <testcase name="noteNormalizationTrimsWhitespaceAndLimitsStoredLength" classname="com.example.simpleledger.TransactionRulesTest" time="0.007"/>
+  <testcase name="dayStatsUseTodayAndAppearBeforeWeek" classname="com.example.simpleledger.TransactionRulesTest" time="0.015"/>
+  <testcase name="importingTheSameBackupTwiceDoesNotDuplicateTransactions" classname="com.example.simpleledger.TransactionRulesTest" time="0.015"/>
+  <testcase name="amountInputAllowsOneSeparatorAndTwoDecimalPlaces" classname="com.example.simpleledger.TransactionRulesTest" time="0.001"/>
+  <testcase name="customStatsNormalizeReversedDates" classname="com.example.simpleledger.TransactionRulesTest" time="0.007"/>
+  <testcase name="monthAndYearStatsUseCalendarBoundaries" classname="com.example.simpleledger.TransactionRulesTest" time="0.003"/>
+  <testcase name="pieLongPressHitTestingFindsTheExpectedSlice" classname="com.example.simpleledger.TransactionRulesTest" time="0.01"/>
+  <testcase name="transactionTimestampCombinesSelectedDateWithCurrentTime" classname="com.example.simpleledger.TransactionRulesTest" time="0.013"/>
+  <testcase name="backgroundOverlayKeepsTheImageVisible" classname="com.example.simpleledger.TransactionRulesTest" time="0.001"/>
+  <testcase name="transactionStoresPositiveAmountInCents" classname="com.example.simpleledger.TransactionRulesTest" time="0.0"/>
+  <testcase name="statsRangeLabelRepeatsYearOnlyWhenRangeCrossesYears" classname="com.example.simpleledger.TransactionRulesTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

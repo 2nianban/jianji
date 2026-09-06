@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.example.simpleledger.app-mergeReleaseResources-2:/values-ru-rRU/values-ru-rRU.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\LAODU\\Documents\\Codex\\2026-08-01\\ni-3\\work\\gradle-home\\caches\\transforms-4\\72fcc74577fc0bce6ee45ae475413835\\transformed\\android-image-cropper-4.7.0\\res\\values-ru-rRU\\values-ru-rRU.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,113,161,237,309,372,437,490,560",
+                        "endColumns": "57,47,75,71,62,64,52,69,54",
+                        "endOffsets": "108,156,232,304,367,432,485,555,610"
+                    }
+                }
+            ]
+        }
+    ]
+}

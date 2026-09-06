@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.5.2" type="partial_results">
+    <map id="UnsafeIntentLaunch">
+            <map id="unprotected">
+                <entry
+                    name="com.example.simpleledger.MainActivity"
+                    boolean="true"/>
+            </map>
+    </map>
+    <map id="UnusedResources">
+        <entry
+            name="model"
+            string="color[ic_launcher_background(U)],drawable[ic_launcher_foreground(U)],mipmap[ic_launcher(U),ic_launcher_round(U)],string[app_name(U),crop_image_menu_crop(D)],style[Theme_SimpleLedger(U),Theme_SimpleLedger_Cropper(U),Theme_AppCompat_Light(R)],xml[ledger_file_paths(U)];2^0^1,3^0^1,7^8;;;"/>
+        <location id="R.string.crop_image_menu_crop"
+            file="${:app*debug*MAIN*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="3"
+            column="13"
+            startOffset="64"
+            endLine="3"
+            endColumn="40"
+            endOffset="91"/>
+    </map>
+
+</incidents>

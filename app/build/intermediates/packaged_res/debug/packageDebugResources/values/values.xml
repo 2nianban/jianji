@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#FFFFFF</color>
+    <string name="app_name">简记</string>
+    <string name="crop_image_menu_crop">确认</string>
+    <style name="Theme.SimpleLedger" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">#246B5A</item>
+        <item name="android:navigationBarColor">#FAFAF8</item>
+        <item name="android:statusBarColor">#FAFAF8</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+    <style name="Theme.SimpleLedger.Cropper" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">#FFFFFF</item>
+        <item name="colorPrimaryDark">#FAFAF8</item>
+        <item name="colorAccent">#176B5B</item>
+        <item name="actionMenuTextColor">#176B5B</item>
+        <item name="android:actionMenuTextColor">#176B5B</item>
+        <item name="android:textColorPrimary">#1C2522</item>
+        <item name="android:navigationBarColor">#FAFAF8</item>
+        <item name="android:statusBarColor">#FAFAF8</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

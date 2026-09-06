@@ -1,0 +1,18 @@
+<lint-module
+    format="1"
+    dir="C:\Users\LAODU\Documents\Codex\2026-07-28\fix\work\SimpleLedgerAndroid\app"
+    name=":app"
+    type="APP"
+    maven="SimpleLedger:app:unspecified"
+    agpVersion="8.5.2"
+    buildFolder="build"
+    bootClassPath="E:\CodexAndroid\sdk\platforms\android-35\android.jar;E:\CodexAndroid\sdk\build-tools\35.0.0\core-lambda-stubs.jar"
+    javaSourceLevel="17"
+    compileTarget="android-35">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="debug"/>
+</lint-module>
