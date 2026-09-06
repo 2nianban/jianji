@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "SimpleLedger"
+rootProject.name = "JianJi"
 include(":app")

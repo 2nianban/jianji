@@ -1,0 +1,17 @@
+# Gradle and Android Studio generated files
+.gradle/
+build/
+*/build/
+.idea/
+
+# Local machine configuration
+local.properties
+
+# Release artifacts are attached to GitHub Releases, not committed to Git
+*.apk
+*.aab
+
+# Local signing material
+*.jks
+*.keystore
+signing.properties

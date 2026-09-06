@@ -2,6 +2,14 @@
 
 这是根据产品需求文档创建的 Kotlin + Jetpack Compose + Room 基础工程。
 
+## 下载安装
+
+前往 [GitHub Releases](https://github.com/2nianban/jianji/releases/latest) 下载最新的 `jianji-vX.Y.Z.apk`。Android 8.0 及以上设备可安装。
+
+每个版本同时提供 `.sha256` 文件，可用于校验 APK 下载是否完整。
+
+应用包名为 `io.github.nianban2.jianji`，用于后续版本持续升级。此前使用 `com.example.simpleledger` 包名的测试 APK 无法直接覆盖安装，请先导出账单备份再安装正式版本。
+
 ## 已实现
 
 - 本地 Room 数据库保存账单
@@ -41,6 +49,38 @@
 
 本项目当前使用 Android SDK 35、Gradle 8.7 和 JDK 17 构建。
 
+## 版本发布
+
+版本号采用以下约定：
+
+- Android `versionName` 使用纯数字版本，例如 `0.5.4`
+- Git 标签和 GitHub Release 使用 `v` 前缀，例如 `v0.5.4`
+- 发布附件命名为 `jianji-v0.5.4.apk`，同时提供同名 `.sha256` 校验文件
+
+推送版本标签后，GitHub Actions 会自动构建 Release APK 并创建 GitHub Release：
+
+```bash
+git tag -a v0.5.4 -m "Release v0.5.4"
+git push origin v0.5.4
+```
+
+Release 使用独立的正式签名密钥。密钥文件和 `signing.properties` 只保存在本机或 GitHub Actions Secrets 中，禁止提交到仓库。
+
+GitHub Actions 需要配置以下 Secrets：`ANDROID_SIGNING_KEYSTORE_BASE64`、`ANDROID_SIGNING_STORE_PASSWORD`、`ANDROID_SIGNING_KEY_ALIAS`、`ANDROID_SIGNING_KEY_PASSWORD`。其中 keystore 使用 Base64 编码后保存。
+
+本机正式密钥位于仓库外的 `../jianji-release-signing/`。请将该目录完整备份到安全的离线介质或密码管理器；丢失密钥后将无法为现有用户发布可覆盖升级的版本。`signing-credentials.txt` 保存 GitHub Secrets 所需的别名和密码，keystore 可在 PowerShell 中这样转换为 Base64：
+
+```powershell
+[Convert]::ToBase64String([IO.File]::ReadAllBytes("..\jianji-release-signing\jianji-release.jks")) | Set-Clipboard
+```
+
+本地发布构建可先加载仓库外的签名环境文件，再运行 `./gradlew assembleRelease`：
+
+```powershell
+. ..\jianji-release-signing\signing.env.ps1
+./gradlew assembleRelease
+```
+
 ## 开源参考
 
 - [CanHub Android Image Cropper](https://github.com/CanHub/Android-Image-Cropper)，Apache-2.0，用于固定比例背景裁剪。
@@ -53,7 +93,7 @@
 
 ## 代码结构
 
-核心代码暂时集中在 `app/src/main/java/com/example/simpleledger/MainActivity.kt`，便于第一轮原型快速验证。功能稳定后建议拆分为：
+核心代码暂时集中在 `app/src/main/java/io/github/nianban2/jianji/MainActivity.kt`，便于第一轮原型快速验证。功能稳定后建议拆分为：
 
 ```text
 data/        Room entity、DAO、database
