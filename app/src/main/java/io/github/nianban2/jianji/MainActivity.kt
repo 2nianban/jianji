@@ -3,6 +3,7 @@ package io.github.nianban2.jianji
 import android.app.Application
 import android.app.DatePickerDialog
 import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
@@ -26,6 +27,7 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Arrangement
@@ -1610,6 +1612,7 @@ private fun MeScreen(
     val context = androidx.compose.ui.platform.LocalContext.current
     val scope = rememberCoroutineScope()
     var transferBusy by rememberSaveable { mutableStateOf(false) }
+    var showBugFeedbackDialog by rememberSaveable { mutableStateOf(false) }
     val importLauncher = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
         uri?.let(onImportSelected)
     }
@@ -1701,6 +1704,17 @@ private fun MeScreen(
         SettingRow("分类管理", "已启用 $categoryCount 个分类，可在记账页继续添加")
         SettingRow("账户管理", accounts.joinToString("、"))
         SettingRow("预算设置", "基础版本待接入")
+        SettingRow(
+            title = "Bug反馈",
+            detail = "点击复制反馈邮箱",
+            onClick = {
+                val clipboard = context.getSystemService(ClipboardManager::class.java)
+                clipboard?.setPrimaryClip(
+                    ClipData.newPlainText("Bug反馈邮箱", "2112190285@qq.com"),
+                )
+                showBugFeedbackDialog = true
+            },
+        )
         Spacer(Modifier.height(16.dp))
         Text("账单迁移", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
         Spacer(Modifier.height(8.dp))
@@ -1771,6 +1785,17 @@ private fun MeScreen(
         )
         Spacer(Modifier.height(96.dp))
     }
+    if (showBugFeedbackDialog) {
+        AlertDialog(
+            onDismissRequest = { showBugFeedbackDialog = false },
+            text = { Text("已复制邮箱") },
+            confirmButton = {
+                TextButton(onClick = { showBugFeedbackDialog = false }) {
+                    Text("确定")
+                }
+            },
+        )
+    }
 }
 
 @Composable
@@ -1826,9 +1851,22 @@ private fun ImportStateDialog(
 }
 
 @Composable
-private fun SettingRow(title: String, detail: String) {
+private fun SettingRow(
+    title: String,
+    detail: String,
+    onClick: (() -> Unit)? = null,
+) {
     Surface(
-        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 4.dp)
+            .then(
+                if (onClick != null) {
+                    Modifier.clickable(onClick = onClick)
+                } else {
+                    Modifier
+                },
+            ),
         shape = MaterialTheme.shapes.medium,
         color = MaterialTheme.colorScheme.surface.copy(alpha = 0.92f),
         border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
